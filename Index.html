@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Para Ti — Un mensaje especial ❤️</title>
+
+
+  <meta property="og:title" content="Para Ti — Un mensaje especial ❤️">
+  <meta property="og:description" content="Pronto llegará una pequeña o pequeño que te amará demasiado y serán dos personitas que te amen mucho aunque uno esté lejos <3">
+
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --bg1: #fff1f5;
+      --bg2: #ffeef2;
+      --accent1: #ff6b9a;
+      --accent2: #ffb3c7;
+      --muted: #4b4b4b;
+      --glass: rgba(255,255,255,0.6);
+      --card-radius: 18px;
+      --shadow-lg: 0 20px 50px rgba(15,15,15,0.12);
+      --shadow-sm: 0 6px 18px rgba(15,15,15,0.08);
+      --glass-border: rgba(255,255,255,0.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      background: radial-gradient(circle at 10% 20%, #fff5f8 0%, transparent 15%),
+                  radial-gradient(circle at 90% 80%, #fff0f3 0%, transparent 20%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      color:#111;
+      overflow:hidden;
+    }
+
+    
+    .wrap{
+      width:100%;
+      max-width:1100px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.78));
+      border-radius: calc(var(--card-radius) + 6px);
+      box-shadow: var(--shadow-lg);
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:0;
+      overflow:visible;
+      position:relative;
+    }
+
+    @media (max-width:980px){
+      .wrap{grid-template-columns:1fr; padding-bottom:36px}
+    }
+
+
+    .panel{
+      padding:44px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:16px;
+    }
+
+    .kicker{
+      display:inline-block;
+      padding:8px 12px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      border-radius:12px;
+      font-weight:700;
+      letter-spacing:0.6px;
+      font-size:13px;
+      box-shadow:0 6px 20px rgba(255,107,154,0.12);
+      width:max-content;
+    }
+
+    h1{
+      margin:0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size:40px;
+      line-height:1.02;
+      color:#231f20;
+      text-shadow: 0 6px 30px rgba(255,165,182,0.06);
+    }
+
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.6;
+    }
+
+
+    .typed{
+      font-weight:600;
+      color: #ff4678;
+      font-size:16px;
+      margin-top:8px;
+    }
+
+
+    .actions{ display:flex; gap:12px; margin-top:10px; flex-wrap:wrap }
+    .btn{
+      padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:700; border:0;
+      box-shadow:var(--shadow-sm);
+    }
+    .btn.primary{ background: linear-gradient(90deg,var(--accent1),var(--accent2)); color:white; }
+    .btn.ghost{ background:transparent; border:1px solid var(--glass-border); color:#ff4d7a; }
+
+
+    .meta{
+      margin-top:10px;
+      font-size:13px;
+      color:#6b6b6b;
+    }
+
+
+    .photo-col{
+      padding:28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.12));
+      border-left: 1px solid rgba(255,255,255,0.6);
+      position:relative;
+    }
+
+    @media (max-width:980px){
+      .photo-col{padding:20px 24px}
+    }
+
+    .photo-card{
+      width:100%;
+      max-width:360px;
+      border-radius:16px;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.8));
+      box-shadow: 0 30px 60px rgba(20,20,20,0.08);
+      transform: translateY(0);
+      transition: transform .6s cubic-bezier(.2,.9,.3,1);
+      border:1px solid rgba(255,255,255,0.6);
+      position:relative;
+    }
+    .photo-card:hover{ transform: translateY(-10px) }
+
+    .photo-frame{
+      width:100%;
+      height:420px;
+      display:block;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(90deg,#ffeef4,#fff7f9);
+    }
+    .photo-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.03);
+      transition: transform 1.2s ease;
+      filter: drop-shadow(0 20px 40px rgba(255,102,150,0.08));
+    }
+    .photo-card:hover .photo-frame img{ transform: scale(1.07) translateY(-6px) }
+
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+    }
+
+    .caption{
+      position:absolute;
+      left:16px;
+      bottom:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.45));
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:700;
+      color:#333;
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 6px 20px rgba(20,20,20,0.06);
+    }
+
+
+    .floating-heart{
+      position:fixed;
+      font-size:22px;
+      will-change: transform, opacity;
+      pointer-events:none;
+      filter: drop-shadow(0 6px 18px rgba(255,0,100,0.08));
+      transform-origin:center;
+    }
+
+
+    .confetti{
+      position:absolute; width:10px; height:16px; opacity:0.95; transform-origin:center;
+      border-radius:3px; will-change: transform, opacity;
+    }
+
+
+    .footer{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .signature{ font-weight:700; color:#2b2b2b }
+
+
+    @media (max-width:520px){
+      h1{ font-size:28px }
+      .photo-frame{ height:320px }
+    }
+
+
+    .fade-in{ animation: fadein .9s ease both }
+    @keyframes fadein{ from{opacity:0; transform: translateY(8px)} to{opacity:1; transform:none} }
+  </style>
+</head>
+<body>
+
+  <div class="wrap" role="main" aria-labelledby="main-title">
+
+    <section class="panel">
+      <div class="kicker fade-in">Para ti</div>
+
+      <h1 id="main-title" class="fade-in">Pronto seremos más amor — un mensaje desde el corazón</h1>
+
+      <p class="subtitle fade-in">
+        <strong>Pronto llegará una pequeña o pequeño que te amará demasiado</strong> y serán dos personitas que te amen mucho aunque uno esté lejos. &lt;3
+      </p>
+
+      <div class="typed" aria-hidden="true">Te amo, te extraño y te pienso cada día — esto es solo el comienzo...</div>
+
+      <div class="actions fade-in" style="margin-top:12px;">
+        <button class="btn primary" id="copyLink">Copiar enlace</button>
+        <button class="btn ghost" id="downloadPNG">Descargar PNG</button>
+        <button class="btn ghost" id="toggleHearts">Apagar corazones</button>
+      </div>
+
+      <div class="meta fade-in">
+        <span class="signature">Con amor — <strong>TU_NOMBRE</strong></span>
+        <div style="height:6px"></div>
+        <small style="color:#8b8b8b; display:block; max-width:60%;">Súbelo a GitHub Pages y comparte el enlace permanente. Si quieres, te doy los pasos exactos desde móvil.</small>
+      </div>
+
+    </section>
+
+    <aside class="photo-col">
+      <div class="photo-card fade-in" aria-hidden="false">
+        <div class="photo-frame" id="photoFrame">
+          <!-- reemplaza DATA_IMAGE_BASE64 por tu string (empieza con data:image/...) -->
+          <img id="mainImage" alt="Nuestra foto especial" src="DATA_IMAGE_BASE64">
+        </div>
+
+        <div class="caption">Un recuerdo para siempre ❤️</div>
+        <div class="overlay" id="overlayLayer" aria-hidden="true"></div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Scripts: animaciones, corazones, confetti y export PNG -->
+  <script>
+    /* ---------- Tiny typed text effect ---------- */
+    (function typedEffect(){
+      const el = document.querySelector('.typed');
+      const txt = "Pronto habrá risas, abrazos y un amor multiplicado.";
+      let i=0;
+      function step(){
+        el.textContent = txt.slice(0, i++);
+        if(i <= txt.length) setTimeout(step, 40);
+      }
+      setTimeout(step, 700);
+    })();
+
+    /* ---------- Floating hearts generator ---------- */
+    let heartsOn = true;
+    const toggleBtn = document.getElementById('toggleHearts');
+    toggleBtn.addEventListener('click', () => {
+      heartsOn = !heartsOn;
+      toggleBtn.textContent = heartsOn ? 'Apagar corazones' : 'Encender corazones';
+    });
+
+    function spawnHeart(){
+      if(!heartsOn) return;
+      const h = document.createElement('div');
+      h.className = 'floating-heart';
+      h.style.left = (Math.random()*85 + 5) + 'vw';
+      h.style.top = (100 + Math.random()*40) + 'vh';
+      h.style.opacity = (Math.random()*0.6 + 0.6);
+      h.style.transform = 'scale(' + (0.7 + Math.random()*0.8) + ')';
+      h.innerText = Math.random() > 0.5 ? '💖' : '❤️';
+      document.body.appendChild(h);
+
+      const vx = (Math.random()*60 - 30);
+      const duration = 3500 + Math.random()*2500;
+
+      h.animate([
+        { transform: `translateY(0) scale(1)`, opacity: h.style.opacity },
+        { transform: `translateY(-${250 + Math.random()*220}px) translateX(${vx}px) scale(1.15)`, opacity: 0 }
+      ], {
+        duration: duration, easing: 'cubic-bezier(.2,.8,.2,1)'
+      });
+
+      setTimeout(()=> h.remove(), duration+50);
+    }
+
+    setInterval(spawnHeart, 280);
+
+    /* ---------- Confetti burst on load ---------- */
+    (function confettiBurst(){
+      const colors = ['#ff8aa2','#ffd1e0','#fff6f8','#ff6b9a','#ffc1da'];
+      const layer = document.getElementById('overlayLayer');
+      for(let i=0;i<30;i++){
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.background = colors[Math.floor(Math.random()*colors.length)];
+        c.style.left = Math.random()*100 + '%';
+        c.style.top = Math.random()*100 + '%';
+        c.style.transform = `rotate(${Math.random()*360}deg) scale(${0.7+Math.random()*1.1})`;
+        c.style.opacity = 0;
+        layer.appendChild(c);
+        // animate
+        const dx = (Math.random()*400 - 200);
+        const dy = (Math.random()*-500 - 200);
+        const rot = (Math.random()*720 - 360);
+        c.animate([
+          { transform: `translate(0,0) rotate(0)`, opacity:0 },
+          { transform: `translate(${dx}px, ${dy}px) rotate(${rot}deg)`, opacity:1 },
+          { transform: `translate(${dx*1.2}px, ${dy*1.1}px) rotate(${rot*1.3}deg)`, opacity:0 }
+        ], { duration: 1600 + Math.random()*900, easing: 'ease-out' });
+        setTimeout(()=> c.remove(), 2200 + Math.random()*1000);
+      }
+    })();
+
+    /* ---------- Copy link button ---------- */
+    const copyBtn = document.getElementById('copyLink');
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(location.href);
+        copyBtn.textContent = 'Enlace copiado ✅';
+        setTimeout(()=> copyBtn.textContent = 'Copiar enlace', 2000);
+      }catch(e){
+        prompt('Copia este enlace:', location.href);
+      }
+    });
+
+    /* ---------- Export as PNG using html2canvas-like approach (simple) ---------- */
+    // We include a simple fallback: convert the photo + caption into a downloadable PNG by drawing to canvas.
+    const downloadBtn = document.getElementById('downloadPNG');
+    downloadBtn.addEventListener('click', async () => {
+      try {
+        const imgEl = document.getElementById('mainImage');
+        const canvas = document.createElement('canvas');
+        const w = 1200; const h = 1400; // fixed export size
+        canvas.width = w; canvas.height = h;
+        const ctx = canvas.getContext('2d');
+
+        // background
+        const g = ctx.createLinearGradient(0,0,w,h);
+        g.addColorStop(0, '#fff6f8');
+        g.addColorStop(1, '#ffeef2');
+        ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+
+        // photo
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.src = imgEl.src;
+        img.onload = function(){
+          const pad = 80;
+          // draw rounded image
+          const iw = w - pad*2;
+          const ih = Math.round(iw * (img.height/img.width));
+          const y = 160;
+          roundImage(ctx, pad, y, iw, ih, 28);
+          ctx.drawImage(img, pad, y, iw, ih);
+
+          // text
+          ctx.fillStyle = '#333';
+          ctx.font = '700 48px "Segoe UI", Arial';
+          wrapText(ctx, "Pronto llegará una pequeña o pequeño que te amará demasiado y serán dos personitas que te amen mucho aunque uno esté lejos <3", pad, y + ih + 70, w - pad*2, 36);
+
+          // signature
+          ctx.font = '700 34px "Segoe UI", Arial';
+          ctx.fillStyle = '#ff4d7a';
+          ctx.fillText('Con cariño — TU_NOMBRE', pad, y + ih + 220);
+
+          // save
+          const dataUrl = canvas.toDataURL('image/png');
+          const a = document.createElement('a');
+          a.href = dataUrl;
+          a.download = 'dedicatoria.png';
+          a.click();
+        };
+      } catch(e){ alert('No se pudo generar la imagen desde aquí. Si quieres, súbeme la base64 y lo genero para ti.'); }
+    });
+
+    function roundImage(ctx, x,y,w,h,r){
+      const path = new Path2D();
+      path.moveTo(x+r,y);
+      path.arcTo(x+w,y,x+w,y+h,r);
+      path.arcTo(x+w,y+h,x,y+h,r);
+      path.arcTo(x,y+h,x,y,r);
+      path.arcTo(x,y,x+w,y,r);
+      ctx.save();
+      ctx.clip(path);
+    }
+
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight){
+      const words = text.split(' ');
+      let line = '';
+      for(let n=0; n<words.length; n++){
+        const testLine = line + words[n] + ' ';
+        const metrics = ctx.measureText(testLine);
+        if(metrics.width > maxWidth && n > 0){
+          ctx.fillStyle = '#555';
+          ctx.fillText(line, x, y);
+          line = words[n] + ' ';
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillStyle = '#555';
+      ctx.fillText(line, x, y);
+    }
+
+    /* ---------- small accessibility: keyboard toggle hearts ---------- */
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'h' || e.key === 'H') {
+        heartsOn = !heartsOn;
+        toggleBtn.textContent = heartsOn ? 'Apagar corazones' : 'Encender corazones';
+      }
+    });
+
+    /* ---------- On load friendly focus ---------- */
+    window.addEventListener('load', () => {
+      document.querySelector('.kicker').setAttribute('tabindex','0');
+      document.querySelector('.kicker').focus();
+    });
+
+  </script>
+</body>
+</html>
